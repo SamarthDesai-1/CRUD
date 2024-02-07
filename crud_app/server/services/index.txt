@@ -1,0 +1,8 @@
+this folder includes callback functions as a service which was export and use with router.
+
+for ex : 
+
+exports.homeRoute = (request, response) => {
+  business logic
+}
+

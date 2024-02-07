@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Update or Edit</h1>
+   <!-- Form Section -->
+   <form action="/" method="post" id="update-user">
+    <div class="new-user">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="hidden" name="id" value="">
+        <input type="text" name="name" id="" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="text" name="Email" id="" placeholder="@Email">
+      </div>
+      <div class="form-group">
+        <label for="Gender">Gender</label>
+        <input type="radio" name="gender" id="" value="Male">
+        <label for="Gender">Male</label>
+        <input type="radio" name="gender" id="" value="Female">
+        <label for="Gender">Female</label>
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <input type="radio" name="status" id="" value="active">
+        <label for="status">Active</label>
+        <input type="radio" name="status" id="" value="inactive">
+        <label for="status">Inactive</label>
+      </div>
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+  <!-- Form Section -->
+</body>
+</html>
