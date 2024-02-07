@@ -4,8 +4,10 @@ const morgan = require("morgan");
 const bodyparser = require("body-parser");
 const path = require("path");
 const connectDB = require("./server/database/connection");
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 function CONFIG() {
   dotenv.config({ path: 'config.env' });

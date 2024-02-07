@@ -32,21 +32,22 @@ exports.find = (request, response) => {
   if (request.query.id) {
 
     const id = request.query.id;
+    console.log(`GET ID`);
     userDB.findById(id).then(data => {
-      if (!data) {
-        return response.status(404).send({ msg: `Not found user with ID -> ${id}` });
+      if (data) {
+        return response.send(data).send({ msg: "Data fetch successfully" });
       }
-      else {
-        response.send(data).send({ msg: "Data fetch successfully" });
-      }
+      
+      return response.status(404).send({ msg: `Not found user with ID -> ${id}` });
+
     }).catch(error => {
-      response.status(500).send({ msg: error.message || "Error while fetching data" });
+      return response.status(500).send({ msg: error.message || "Error while fetching data" });
     })
 
   }
   else {
     userDB.find().then(data => console.log(data)).catch(error => {
-      response.status(500).send({ msg: error.message || "Error occured while reteriving data" });
+      return response.status(500).send({ msg: error.message || "Error occured while reteriving data" });
     });
   }
   
