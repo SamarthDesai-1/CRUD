@@ -30,28 +30,26 @@ exports.create = (request, response) => {
 exports.find = (request, response) => {
 
   if (request.query.id) {
-
     const id = request.query.id;
-    console.log(`GET ID`);
+
     userDB.findById(id).then(data => {
       if (data) {
-        return response.send(data).send({ msg: "Data fetch successfully" });
+        return response.send(data);
       }
-      
       return response.status(404).send({ msg: `Not found user with ID -> ${id}` });
 
-    }).catch(error => {
+    })
+    .catch(error => {
       return response.status(500).send({ msg: error.message || "Error while fetching data" });
     })
 
   }
   else {
-    userDB.find().then(data => console.log(data)).catch(error => {
+    userDB.find().then(data => response.status(200).send(data)).catch(error => {
       return response.status(500).send({ msg: error.message || "Error occured while reteriving data" });
     });
   }
   
-  response.status(200).send({ msg: "Data send successfully" });
 };
 
 /* Update a new identified user ID */
