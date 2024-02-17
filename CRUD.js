@@ -12,4 +12,6 @@ class Student {
   constructor() {
     console.log("Hello from class");
   }
-}
+};
+
+const obj = new Student();
